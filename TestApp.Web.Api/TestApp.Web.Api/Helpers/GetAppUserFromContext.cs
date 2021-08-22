@@ -15,7 +15,7 @@ namespace TestApp.Web.Api.Helpers
                 throw new NullReferenceException("No user associated with token");
             }
             
-            return context?.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            return userId;
         }
     }
 }

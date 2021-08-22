@@ -10,8 +10,8 @@ using TestApp.Data;
 namespace TestApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210819202400_InitDatabase")]
-    partial class InitDatabase
+    [Migration("20210822151351_InitialDatabase")]
+    partial class InitialDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,6 +32,9 @@ namespace TestApp.Data.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
@@ -46,15 +49,33 @@ namespace TestApp.Data.Migrations
                         {
                             Id = "f14f0184-0b15-431f-b4e3-853224eed6dd",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Description = "Sample C# Tests",
-                            UserId = "a8a4828c-60f0-4f99-bbe6-229df1d098a2"
+                            Description = "Sample C# Tests Description",
+                            Name = "C# Test",
+                            UserId = "ce40ea29-e665-4a37-858b-e7d2359cdd4f"
+                        },
+                        new
+                        {
+                            Id = "b5902bf9-bea2-4fac-96bc-52c0ed52e6c7",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Sample Node.js Tests",
+                            Name = "Node.js Test",
+                            UserId = "ce40ea29-e665-4a37-858b-e7d2359cdd4f"
                         },
                         new
                         {
                             Id = "91b1aa6d-bd4a-43e0-ad89-e672709e35fe",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Sample LINQ Tests",
-                            UserId = "ce40ea29-e665-4a37-858b-e7d2359cdd4f"
+                            Name = "LINQ Test",
+                            UserId = "a8a4828c-60f0-4f99-bbe6-229df1d098a2"
+                        },
+                        new
+                        {
+                            Id = "c23f9ea6-50a9-417c-89bb-15194cc2787b",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Sample Javascript Tests",
+                            Name = "Vanilla JS Test",
+                            UserId = "a8a4828c-60f0-4f99-bbe6-229df1d098a2"
                         });
                 });
 
@@ -84,7 +105,7 @@ namespace TestApp.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "683ede9f-0a9f-4925-b3ba-ef36e92bcc97",
+                            Id = "00b6a320-3940-402a-9883-0d562f1c2f98",
                             AnswerText = "public static void Program()",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
@@ -92,7 +113,7 @@ namespace TestApp.Data.Migrations
                         },
                         new
                         {
-                            Id = "39b5135e-661c-4ebb-8853-8240f9389264",
+                            Id = "ef3136cc-fcdf-4e7e-8444-e07d221e18c2",
                             AnswerText = "public static void Main()",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = true,
@@ -100,7 +121,7 @@ namespace TestApp.Data.Migrations
                         },
                         new
                         {
-                            Id = "8f7c88df-cb57-4645-bc3a-0507a760de1a",
+                            Id = "09e99bee-b2c4-4927-9c65-26bd62bb36fe",
                             AnswerText = "public static void main()",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
@@ -108,7 +129,7 @@ namespace TestApp.Data.Migrations
                         },
                         new
                         {
-                            Id = "5ca07b23-5dca-434f-808d-43de8d309f05",
+                            Id = "bf7c693c-d6d1-406e-ae89-d243865c5a43",
                             AnswerText = "None of the above",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
@@ -116,7 +137,7 @@ namespace TestApp.Data.Migrations
                         },
                         new
                         {
-                            Id = "acb0bcf9-42c5-4bee-8228-28264373c9dc",
+                            Id = "c1cd5444-a65d-4e33-9050-208ec88c9805",
                             AnswerText = "Int32",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
@@ -124,7 +145,7 @@ namespace TestApp.Data.Migrations
                         },
                         new
                         {
-                            Id = "d13aff12-4437-47ed-9478-fdaa7bdfcb5c",
+                            Id = "f8ff703c-1fd8-4f10-b662-30661cb3c870",
                             AnswerText = "Double",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
@@ -132,7 +153,7 @@ namespace TestApp.Data.Migrations
                         },
                         new
                         {
-                            Id = "85e27706-0d0c-4dfb-a6eb-57887f45fe3e",
+                            Id = "51e7a3b7-c90e-4a14-8f93-aefeb4174993",
                             AnswerText = "Decimal",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
@@ -140,7 +161,7 @@ namespace TestApp.Data.Migrations
                         },
                         new
                         {
-                            Id = "67748d96-0cd2-480d-a9a9-601a7ff2afe4",
+                            Id = "2e7e27fa-4369-4b24-ac9a-8e39ea073895",
                             AnswerText = "All the above",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = true,
@@ -148,7 +169,7 @@ namespace TestApp.Data.Migrations
                         },
                         new
                         {
-                            Id = "e3c2b7a7-3639-4a99-bb10-b0fbfb4e113b",
+                            Id = "9162071d-768f-4563-8d74-1a1f6c0c05df",
                             AnswerText = "String",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = true,
@@ -156,7 +177,7 @@ namespace TestApp.Data.Migrations
                         },
                         new
                         {
-                            Id = "dc6ca413-1835-4e48-a199-f2ae1336cc38",
+                            Id = "bfccf393-e4f8-41a5-9e22-cf1335aa472d",
                             AnswerText = "Double",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
@@ -164,7 +185,7 @@ namespace TestApp.Data.Migrations
                         },
                         new
                         {
-                            Id = "091e92e6-2f8b-4883-bfbd-95a1f828825a",
+                            Id = "3a371e83-3874-4f47-940d-9f40d11d3e3a",
                             AnswerText = "Long",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
@@ -172,7 +193,7 @@ namespace TestApp.Data.Migrations
                         },
                         new
                         {
-                            Id = "a98bf1c7-da3c-4ac1-bbd0-456b1cc5f6c7",
+                            Id = "dc051ff9-0deb-446a-ac78-d4907e43078f",
                             AnswerText = "All the above",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
@@ -180,7 +201,7 @@ namespace TestApp.Data.Migrations
                         },
                         new
                         {
-                            Id = "0d9e40e8-e6e2-4d8a-b220-54f3c6194088",
+                            Id = "4c08338b-e0f1-41a7-8988-a9d240b85d5b",
                             AnswerText = "It allows assignment of null to reference type.",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
@@ -188,7 +209,7 @@ namespace TestApp.Data.Migrations
                         },
                         new
                         {
-                            Id = "b52e84f5-66ca-4eec-b598-e25d611eec41",
+                            Id = "d864185d-97b3-417a-892b-7a29455b90e5",
                             AnswerText = "It allows assignment of null to value type.",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = true,
@@ -196,7 +217,7 @@ namespace TestApp.Data.Migrations
                         },
                         new
                         {
-                            Id = "e76aea45-9c3c-4881-a09b-3cb15f1686f5",
+                            Id = "889ed162-b77a-4e7e-bd29-882486bbf168",
                             AnswerText = "It allows assignment of null to static class.",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
@@ -204,7 +225,7 @@ namespace TestApp.Data.Migrations
                         },
                         new
                         {
-                            Id = "cd67e410-6e6b-47be-8f40-cb4986b513ae",
+                            Id = "7961ce25-8887-497e-9b11-25657902f057",
                             AnswerText = "None of the above",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
@@ -212,7 +233,7 @@ namespace TestApp.Data.Migrations
                         },
                         new
                         {
-                            Id = "f3a1e79f-012a-4a4a-8dd4-1043a04461c1",
+                            Id = "10533958-cf56-4868-8103-785791835046",
                             AnswerText = "Reference type",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
@@ -220,7 +241,7 @@ namespace TestApp.Data.Migrations
                         },
                         new
                         {
-                            Id = "f73bd6a2-63f9-40ab-80fc-2068e39b2f4a",
+                            Id = "6ad7dff2-12f8-44f9-91f7-29e701c49bbe",
                             AnswerText = "Value type",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = true,
@@ -228,7 +249,7 @@ namespace TestApp.Data.Migrations
                         },
                         new
                         {
-                            Id = "3dd30000-c984-4da2-853e-50883ec57511",
+                            Id = "b9924313-5ec7-482f-bdd0-3b7f757c4b50",
                             AnswerText = "Class type",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
@@ -236,7 +257,7 @@ namespace TestApp.Data.Migrations
                         },
                         new
                         {
-                            Id = "b787046b-927d-4f7c-9fee-755493309ded",
+                            Id = "88aff19b-1eb3-49cc-a531-2589875c5900",
                             AnswerText = "None of the above",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
@@ -244,7 +265,7 @@ namespace TestApp.Data.Migrations
                         },
                         new
                         {
-                            Id = "2d4a85cc-4b52-464e-b98d-a629d4b7a15a",
+                            Id = "c8b9035c-9bf0-43c3-81e0-0f514cc68c56",
                             AnswerText = "Link-List Inner Query",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
@@ -252,7 +273,7 @@ namespace TestApp.Data.Migrations
                         },
                         new
                         {
-                            Id = "04c0fd32-1faa-46ba-be34-26ff3b366907",
+                            Id = "f2cc79d5-e09a-4fd1-a309-0ab76930080e",
                             AnswerText = "Language-Integrated Query",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = true,
@@ -260,7 +281,7 @@ namespace TestApp.Data.Migrations
                         },
                         new
                         {
-                            Id = "0851b621-1f32-4830-bb40-97f6abf3c99a",
+                            Id = "9ec8eada-e1e6-4076-9703-e578e5508055",
                             AnswerText = "Linked-Integrated Query",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
@@ -268,7 +289,7 @@ namespace TestApp.Data.Migrations
                         },
                         new
                         {
-                            Id = "552f785c-ea77-4e59-9663-79554c1b3264",
+                            Id = "22333f93-cc7b-4a33-8b8f-8e8c7249d118",
                             AnswerText = "Lazy Integration Query",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
@@ -276,7 +297,7 @@ namespace TestApp.Data.Migrations
                         },
                         new
                         {
-                            Id = "b7fe413e-71ef-4888-b143-6248234b9c37",
+                            Id = "22a92b49-45d8-4bd1-9fc8-f4237bf91e59",
                             AnswerText = "C# and F#",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
@@ -284,7 +305,7 @@ namespace TestApp.Data.Migrations
                         },
                         new
                         {
-                            Id = "43382414-dafc-4ab6-9e52-285b181bb4c1",
+                            Id = "20a6505d-24b8-46f8-944a-9791a164e24b",
                             AnswerText = "VB and F#",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
@@ -292,7 +313,7 @@ namespace TestApp.Data.Migrations
                         },
                         new
                         {
-                            Id = "d08efed2-5d0e-44d9-9062-251a19ef7981",
+                            Id = "c4163c84-f5e9-468a-92c5-0a50f35eb1e8",
                             AnswerText = "C# and VB",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = true,
@@ -300,7 +321,7 @@ namespace TestApp.Data.Migrations
                         },
                         new
                         {
-                            Id = "7e1f1422-bf51-46fc-9d31-adc13a27a945",
+                            Id = "fa132b69-e740-433c-af31-7dfc9be1dbdc",
                             AnswerText = "All the above",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
@@ -308,7 +329,7 @@ namespace TestApp.Data.Migrations
                         },
                         new
                         {
-                            Id = "70a3595e-c50d-435a-8156-8966e222ddf0",
+                            Id = "622fffc8-a8fa-4ab3-ab98-838072958bf7",
                             AnswerText = "Object collection",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = true,
@@ -316,7 +337,7 @@ namespace TestApp.Data.Migrations
                         },
                         new
                         {
-                            Id = "80ddb8a6-e75e-4002-a6ab-7463493cce0c",
+                            Id = "7e44084e-fa5e-4be3-8f27-158d2b4cf1db",
                             AnswerText = "Double",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
@@ -324,7 +345,7 @@ namespace TestApp.Data.Migrations
                         },
                         new
                         {
-                            Id = "0fa7b141-e3d7-4684-b728-f00c38358d01",
+                            Id = "cb065ff5-63b4-4e07-8738-d8e8afb11cce",
                             AnswerText = "Long",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
@@ -332,7 +353,7 @@ namespace TestApp.Data.Migrations
                         },
                         new
                         {
-                            Id = "21117ef6-eb49-4909-8e62-418e4e7183d4",
+                            Id = "1ac42230-c05a-4e84-948a-3aa80ef3cd4e",
                             AnswerText = "All the above",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
@@ -340,7 +361,7 @@ namespace TestApp.Data.Migrations
                         },
                         new
                         {
-                            Id = "116f112a-6594-4077-99fe-36ae33664b6d",
+                            Id = "35223d3d-b9a9-4937-bb2e-17db43ba8c09",
                             AnswerText = "LINQ API is a bunch of extension methods included in System.Linq.Enumerable and System.Linq.Queryable class.",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = true,
@@ -348,7 +369,7 @@ namespace TestApp.Data.Migrations
                         },
                         new
                         {
-                            Id = "1abba0fa-9d99-4b73-9a6d-1de7bd5b09c3",
+                            Id = "19fdf0b4-056e-47fe-8492-316083a5bb7d",
                             AnswerText = "LINQ API is a bunch of abstract methods included in Enumerable and Queryable classes.",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
@@ -356,7 +377,7 @@ namespace TestApp.Data.Migrations
                         },
                         new
                         {
-                            Id = "0728a87e-0324-4700-aab1-6a2a6367427b",
+                            Id = "a9dc1df5-1e10-4cd2-9320-0f9b29dad640",
                             AnswerText = "LINQ API is bunch of queries written in C# and VB.",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
@@ -364,11 +385,251 @@ namespace TestApp.Data.Migrations
                         },
                         new
                         {
-                            Id = "a1848660-c2da-4367-b30b-c704bfa1a3aa",
+                            Id = "9a93841c-ba29-41d2-bbc5-17509b775cfe",
                             AnswerText = "None of the above",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
                             QuestionId = "127d9f22-064a-4470-8b03-d7c4b85948ef"
+                        },
+                        new
+                        {
+                            Id = "9406536a-b102-4f99-b6e5-096a079e3bb0",
+                            AnswerText = "Client",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsCorrect = false,
+                            QuestionId = "cf8d414b-0a84-4961-9049-52b6c1756047"
+                        },
+                        new
+                        {
+                            Id = "0cb8e21f-468b-45a9-862c-d270cb781b34",
+                            AnswerText = "Server",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsCorrect = true,
+                            QuestionId = "cf8d414b-0a84-4961-9049-52b6c1756047"
+                        },
+                        new
+                        {
+                            Id = "fb4ed8f5-bd3d-4a7e-ae96-bc7ea703334b",
+                            AnswerText = "Both, server and client",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsCorrect = false,
+                            QuestionId = "cf8d414b-0a84-4961-9049-52b6c1756047"
+                        },
+                        new
+                        {
+                            Id = "91361bde-fd1d-4dcb-8a42-62fa8ca924dd",
+                            AnswerText = "Browser",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsCorrect = false,
+                            QuestionId = "cf8d414b-0a84-4961-9049-52b6c1756047"
+                        },
+                        new
+                        {
+                            Id = "fc5f46c4-769f-421c-b3f0-b8de6babcf63",
+                            AnswerText = "Synchronous",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsCorrect = false,
+                            QuestionId = "cf8d123f-0a84-4961-f029-12h6x1756047"
+                        },
+                        new
+                        {
+                            Id = "4d7592d2-8f1d-405d-bef9-9f51e40f84ab",
+                            AnswerText = "Multi-threaded",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsCorrect = false,
+                            QuestionId = "cf8d123f-0a84-4961-f029-12h6x1756047"
+                        },
+                        new
+                        {
+                            Id = "40a2d3f2-8bf8-4cd7-90c2-3f82843239b0",
+                            AnswerText = "Asynchronous",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsCorrect = true,
+                            QuestionId = "cf8d123f-0a84-4961-f029-12h6x1756047"
+                        },
+                        new
+                        {
+                            Id = "25fc59e9-e0ad-4f7e-8641-9c29cf5a9131",
+                            AnswerText = "None of the above",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsCorrect = false,
+                            QuestionId = "cf8d123f-0a84-4961-f029-12h6x1756047"
+                        },
+                        new
+                        {
+                            Id = "e5230b4c-3aee-4558-943d-5801ab60b5e7",
+                            AnswerText = "Windows",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsCorrect = false,
+                            QuestionId = "692235e8-1fb5-449e-9d43-b1a807cf3ca6"
+                        },
+                        new
+                        {
+                            Id = "fdcc795f-0ff8-43c5-9008-9847d78f556c",
+                            AnswerText = "Mac",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsCorrect = false,
+                            QuestionId = "692235e8-1fb5-449e-9d43-b1a807cf3ca6"
+                        },
+                        new
+                        {
+                            Id = "b6e193de-e731-4790-af11-fcf08d3bcd1c",
+                            AnswerText = "Unix/Linux",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsCorrect = false,
+                            QuestionId = "692235e8-1fb5-449e-9d43-b1a807cf3ca6"
+                        },
+                        new
+                        {
+                            Id = "84395c79-3f8b-44b6-abe4-07a65dca7433",
+                            AnswerText = "All",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsCorrect = true,
+                            QuestionId = "692235e8-1fb5-449e-9d43-b1a807cf3ca6"
+                        },
+                        new
+                        {
+                            Id = "d7127099-8fe8-4c91-ba4f-547d7ee43c8a",
+                            AnswerText = "Testing node.js/JavaScript expressions",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsCorrect = true,
+                            QuestionId = "0508062a-da04-4349-9832-113b1405cfff"
+                        },
+                        new
+                        {
+                            Id = "8a51a2ee-a42e-49c2-bdd2-2c1fd3c0324c",
+                            AnswerText = "Executing browser’s JavaScript expressions.",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsCorrect = false,
+                            QuestionId = "0508062a-da04-4349-9832-113b1405cfff"
+                        },
+                        new
+                        {
+                            Id = "ad0bca29-b669-4da2-ac09-adf8b2d8c1d7",
+                            AnswerText = "The preview of node.js application.",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsCorrect = false,
+                            QuestionId = "0508062a-da04-4349-9832-113b1405cfff"
+                        },
+                        new
+                        {
+                            Id = "1c92d6b2-e0de-41a3-8000-38eeb6eb9b9b",
+                            AnswerText = "None of the above.",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsCorrect = false,
+                            QuestionId = "0508062a-da04-4349-9832-113b1405cfff"
+                        },
+                        new
+                        {
+                            Id = "fdb4f948-2c6e-4dd5-99fb-747601ea0186",
+                            AnswerText = "True",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsCorrect = true,
+                            QuestionId = "1834f0be-b24e-47cf-b609-d5c184cb6a02"
+                        },
+                        new
+                        {
+                            Id = "a067d682-297f-4a0d-b6e2-fee28020934d",
+                            AnswerText = "False",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsCorrect = false,
+                            QuestionId = "1834f0be-b24e-47cf-b609-d5c184cb6a02"
+                        },
+                        new
+                        {
+                            Id = "94da67c1-e633-4b4c-9008-abc7a4b34a9c",
+                            AnswerText = "<JavaScript></JavaScript>",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsCorrect = false,
+                            QuestionId = "b997c953-a860-4a0d-a403-ec689ff60d46"
+                        },
+                        new
+                        {
+                            Id = "2f8a01ee-d417-49d3-b794-f2c8ac51574a",
+                            AnswerText = "<script></script>",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsCorrect = true,
+                            QuestionId = "b997c953-a860-4a0d-a403-ec689ff60d46"
+                        },
+                        new
+                        {
+                            Id = "9bb0cf8f-13f2-4bae-bea7-725aeba678ba",
+                            AnswerText = "<code></code>",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsCorrect = false,
+                            QuestionId = "b997c953-a860-4a0d-a403-ec689ff60d46"
+                        },
+                        new
+                        {
+                            Id = "7b2b255d-3490-40af-81b9-e8ee9375b322",
+                            AnswerText = "<head></head>",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsCorrect = false,
+                            QuestionId = "b997c953-a860-4a0d-a403-ec689ff60d46"
+                        },
+                        new
+                        {
+                            Id = "6c727e7e-3bd7-4b73-86fa-c24bd5c6ea37",
+                            AnswerText = "new",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsCorrect = false,
+                            QuestionId = "6b119880-12e5-4510-aa14-83a51f94adb6"
+                        },
+                        new
+                        {
+                            Id = "d862e0f3-c591-4b3b-ae0b-24b2435b350a",
+                            AnswerText = "int",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsCorrect = false,
+                            QuestionId = "6b119880-12e5-4510-aa14-83a51f94adb6"
+                        },
+                        new
+                        {
+                            Id = "b3beb7cc-4908-4f0b-a779-80fc3809698c",
+                            AnswerText = "string",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsCorrect = false,
+                            QuestionId = "6b119880-12e5-4510-aa14-83a51f94adb6"
+                        },
+                        new
+                        {
+                            Id = "b333657b-6dbc-4f35-ac9c-f65520ca78a4",
+                            AnswerText = "let/const",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsCorrect = true,
+                            QuestionId = "6b119880-12e5-4510-aa14-83a51f94adb6"
+                        },
+                        new
+                        {
+                            Id = "d4e94fed-de96-443e-b7b7-850a62a0e170",
+                            AnswerText = "String",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsCorrect = false,
+                            QuestionId = "73eddcbd-5964-4d2c-ab8d-85dd0d6ed6cd"
+                        },
+                        new
+                        {
+                            Id = "8eaef720-cb19-486f-b9a7-9661f28ceccb",
+                            AnswerText = "Number",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsCorrect = false,
+                            QuestionId = "73eddcbd-5964-4d2c-ab8d-85dd0d6ed6cd"
+                        },
+                        new
+                        {
+                            Id = "301773f2-73b7-4d84-aec6-ecc80fbb97e9",
+                            AnswerText = "Boolean",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsCorrect = false,
+                            QuestionId = "73eddcbd-5964-4d2c-ab8d-85dd0d6ed6cd"
+                        },
+                        new
+                        {
+                            Id = "1351da42-0a07-4f08-8969-8fd3223de6cf",
+                            AnswerText = "All",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            IsCorrect = true,
+                            QuestionId = "73eddcbd-5964-4d2c-ab8d-85dd0d6ed6cd"
                         });
                 });
 
@@ -455,6 +716,62 @@ namespace TestApp.Data.Migrations
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             QuestionText = "Which of the following statement is TRUE?",
                             TestId = "91b1aa6d-bd4a-43e0-ad89-e672709e35fe"
+                        },
+                        new
+                        {
+                            Id = "cf8d414b-0a84-4961-9049-52b6c1756047",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            QuestionText = "Node.js runs on __________",
+                            TestId = "b5902bf9-bea2-4fac-96bc-52c0ed52e6c7"
+                        },
+                        new
+                        {
+                            Id = "cf8d123f-0a84-4961-f029-12h6x1756047",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            QuestionText = "Node.js is ________ by default.",
+                            TestId = "b5902bf9-bea2-4fac-96bc-52c0ed52e6c7"
+                        },
+                        new
+                        {
+                            Id = "692235e8-1fb5-449e-9d43-b1a807cf3ca6",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            QuestionText = "Node.js supports which of the following platform?",
+                            TestId = "b5902bf9-bea2-4fac-96bc-52c0ed52e6c7"
+                        },
+                        new
+                        {
+                            Id = "0508062a-da04-4349-9832-113b1405cfff",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            QuestionText = "Node.js terminal (REPL) is used for _________.",
+                            TestId = "b5902bf9-bea2-4fac-96bc-52c0ed52e6c7"
+                        },
+                        new
+                        {
+                            Id = "1834f0be-b24e-47cf-b609-d5c184cb6a02",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            QuestionText = "JavaScript is ECMAScript",
+                            TestId = "c23f9ea6-50a9-417c-89bb-15194cc2787b"
+                        },
+                        new
+                        {
+                            Id = "b997c953-a860-4a0d-a403-ec689ff60d46",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            QuestionText = "JavaScript written under which of the following tag?",
+                            TestId = "c23f9ea6-50a9-417c-89bb-15194cc2787b"
+                        },
+                        new
+                        {
+                            Id = "6b119880-12e5-4510-aa14-83a51f94adb6",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            QuestionText = "A variable in JavaScript declared with which of the following keyword?",
+                            TestId = "c23f9ea6-50a9-417c-89bb-15194cc2787b"
+                        },
+                        new
+                        {
+                            Id = "73eddcbd-5964-4d2c-ab8d-85dd0d6ed6cd",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            QuestionText = "Which of the followings are primitive data types in JavaScript?",
+                            TestId = "c23f9ea6-50a9-417c-89bb-15194cc2787b"
                         });
                 });
 

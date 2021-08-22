@@ -1,17 +1,19 @@
 <template>
-  <div class="h-100 d-flex justify-content-center flex-column align-items-center ">
+  <div>
       <b-list-group >
-        <b-list-group-item class="w-100">
+        <b-list-group-item class="w-100 border-primary">
           <span>{{questionText}}</span>
         </b-list-group-item>
       </b-list-group>
-    <div class="w-100 " v-for="(option, i) in answers" :key="option.id">
-      <b-list-group >
-        <b-list-group-item class="w-100 d-flex flex-row">
-          <span>{{option.answerText}}</span>
-          <input type="checkbox" @click="setChecked(option, i)" :checked="i === checked" :id="option.id">
-        </b-list-group-item>
-      </b-list-group>
+    <div class="w-100 mt-5">
+      <div class="w-100" v-for="(option, i) in answers" :key="option.id">
+        <b-list-group>
+          <b-list-group-item class="w-100 mt-1 d-flex flex-row align-items-center border-secondary justify-content-between">
+            <span>{{option.answerText}}</span>
+            <input class="m-2" type="checkbox" @click="setChecked(option, i)" :checked="i === checked" :id="option.id">
+          </b-list-group-item>
+        </b-list-group>
+      </div>
     </div>
   </div>
 </template>

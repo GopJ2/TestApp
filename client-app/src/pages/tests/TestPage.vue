@@ -1,5 +1,5 @@
 <template>
-  <div class="h-100" v-if="questions.length > 0">
+  <div class="h-100 d-flex flex-column justify-content-center align-items-center" v-if="questions.length > 0">
     <div v-for="question in questions" :key="question.id">
       <test-questions
           v-if="question.isActive"
@@ -9,29 +9,34 @@
       ></test-questions>
     </div>
     <div>
-      <b-button v-if="!getStatusOfNextButton()" @click="getNextQuestion()">Next</b-button>
-      <b-button v-else @click="goToResult()">Finish</b-button>
+      <b-button class="mt-3" v-if="!getStatusOfNextButton()" :disabled="nextDisabled" @click="getNextQuestion()">Next</b-button>
+      <b-button class="mt-3" v-else :disabled="nextDisabled" @click="goToResult()">Finish</b-button>
     </div>
   </div>
   <div v-else>
-    <h2>There are no questions for you</h2>
+    <h2>...Loading</h2>
   </div>
 </template>
 
 <script>
 import api from "../../services/api";
 import TestQuestions from "../../components/tests/TestQuestions";
+import {mapActions} from 'vuex';
 export default {
   data() {
     return {
       questions: [],
       answersState: {},
+      nextDisabled: true,
     }
   },
   async created() {
     await this.loadOptionsForTest();
   },
   methods: {
+    ...mapActions({
+      setTestResult: 'testResult/setTestResult'
+    }),
     async loadOptionsForTest() {
       const testId = this.$route.params.id;
       const result = (await api.get(`TestQuestions/questions/${testId}`)).data;
@@ -41,6 +46,7 @@ export default {
     getNextQuestion() {
       let index =  this.questions.findIndex(x => x.isActive);
       if (this.questions[index + 1]) {
+        this.nextDisabled = true;
         this.questions[index].isActive = false;
         this.questions[index + 1].isActive = true;
       }
@@ -50,17 +56,21 @@ export default {
       return this.questions[index + 1] === undefined;
     },
     goToResult() {
-
+        const testId = this.$route.params.id;
+        const countOfCorrects = Object.values(this.answersState).filter(el => el).length;
+        this.setTestResult({id: testId, questions: this.questions.length, correctAnswers: countOfCorrects });
+        this.$router.push({path: `/results/${testId}`})
     },
     optionSelected(option) {
       const {answer, save} = option;
       if (save) {
         this.answersState[answer.questionId] = answer.isCorrect;
+        this.nextDisabled = false;
         return;
       }
-
+      this.nextDisabled = true;
       delete this.answersState[answer.questionId];
-    }
+    },
   },
   name: "TestPage",
   components: {

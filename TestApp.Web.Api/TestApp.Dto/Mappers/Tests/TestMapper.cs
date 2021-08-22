@@ -13,6 +13,7 @@ namespace TestApp.Dto.Mappers.Tests
             {
                 Id = entity.Id,
                 UserId = entity.UserId,
+                Name = entity.Name,
                 Description = entity.Description,
                 Questions = entity.Questions.MapToDtos()
             };
