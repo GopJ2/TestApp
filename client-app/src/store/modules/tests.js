@@ -10,9 +10,6 @@ const tests = {
             state.tests = payload;
         },
         changeAgreement({tests}, payload) {
-            console.log(payload);
-            // eslint-disable-next-line no-debugger
-            debugger;
             const index = tests.findIndex(el => el.id === payload.testId);
             if (index > -1) {
                 tests[index] = Object.assign(tests[index], {agreementAccepted: payload.checked})
@@ -28,7 +25,6 @@ const tests = {
                 return Promise.reject(e);
             }
         },
-        // eslint-disable-next-line no-unused-vars
         acceptTestAgreement({commit}, payload) {
             commit('changeAgreement', payload);
         }
