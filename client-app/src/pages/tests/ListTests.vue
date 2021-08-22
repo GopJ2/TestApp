@@ -14,10 +14,7 @@
         <p class="my-4">{{ selectedTest ? selectedTest.description : ''}}</p>
         <b-form-checkbox
             id="checkbox-1"
-            v-model="status"
-            name="checkbox-1"
-            value=1
-            unchecked-value=0
+            @change="agreementChange"
         >
           I agree to start
         </b-form-checkbox>
@@ -34,23 +31,26 @@
 </template>
 
 <script>
-import api from "../../services/api";
+import {mapActions, mapGetters} from 'vuex';
 export default {
   data() {
     return {
-      tests: [],
-      status: 0,
+      status: false,
       modalError: '',
       selectedTest: null,
     }
   },
   async created() {
-    this.tests = (await api.get('/Test/tests')).data;
+    await this.loadTests();
   },
   methods: {
+    ...mapActions({
+      loadTests: 'tests/loadTests',
+      changeAgreement: 'tests/acceptTestAgreement',
+    }),
     proceed() {
-      if (this.status === "1") {
-        this.status = 0;
+      if (this.status) {
+        this.status = false;
         this.modalError = '';
         this.$bvModal.hide("modal-test-desc");
         this.$router.push(`/tests/${this.selectedTest.id}`);
@@ -59,10 +59,19 @@ export default {
 
       this.modalError = "Agreement needs to be checked";
     },
+    agreementChange(e) {
+      this.status = e;
+      this.changeAgreement({testId: this.selectedTest.id, checked: e});
+    },
     showModal(test) {
       this.selectedTest = test;
       this.$bvModal.show('modal-test-desc');
     }
+  },
+  computed: {
+    ...mapGetters({
+      tests: 'tests/tests'
+    })
   },
   name: "ListTests"
 }

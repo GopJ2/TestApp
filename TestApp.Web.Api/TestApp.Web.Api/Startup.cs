@@ -52,9 +52,11 @@ namespace TestApp.Web.Api
                 app.UseDeveloperExceptionPage();
             }
 
+            // Should be configured for real world app in correct way.
             app.UseCors(option =>
                 option.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin()
             );
+
             app.UseHttpsRedirection();
 
             app.UseRouting();

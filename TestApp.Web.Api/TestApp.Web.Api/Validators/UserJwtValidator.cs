@@ -15,7 +15,7 @@ namespace TestApp.Web.Api.Validators
         {
             try
             {
-                var repository = context.HttpContext.RequestServices.GetRequiredService<GlobalDataAccess>();
+                var dataAccess = context.HttpContext.RequestServices.GetRequiredService<GlobalDataAccess>();
                 var id = context.Principal?.Claims.First(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
 
                 if (id == null)
@@ -24,7 +24,7 @@ namespace TestApp.Web.Api.Validators
                 }
 
                 var checkUser =
-                    await repository._appUserDataAccess.GetUserByFieldAsync(x => x.Id == id, new CancellationToken());
+                    await dataAccess._appUserDataAccess.GetUserByFieldAsync(x => x.Id == id, new CancellationToken());
 
                 if ( checkUser == null )
                 {
