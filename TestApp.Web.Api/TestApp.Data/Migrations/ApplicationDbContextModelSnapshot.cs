@@ -21,8 +21,9 @@ namespace TestApp.Data.Migrations
 
             modelBuilder.Entity("TestApp.Data.Entity.Tests.Test", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -33,8 +34,8 @@ namespace TestApp.Data.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -45,42 +46,43 @@ namespace TestApp.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "f14f0184-0b15-431f-b4e3-853224eed6dd",
+                            Id = new Guid("f14f0184-0b15-431f-b4e3-853224eed6dd"),
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Sample C# Tests Description",
                             Name = "C# Test",
-                            UserId = "ce40ea29-e665-4a37-858b-e7d2359cdd4f"
+                            UserId = new Guid("ce40ea29-e665-4a37-858b-e7d2359cdd4f")
                         },
                         new
                         {
-                            Id = "b5902bf9-bea2-4fac-96bc-52c0ed52e6c7",
+                            Id = new Guid("b5902bf9-bea2-4fac-96bc-52c0ed52e6c7"),
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Sample Node.js Tests",
                             Name = "Node.js Test",
-                            UserId = "ce40ea29-e665-4a37-858b-e7d2359cdd4f"
+                            UserId = new Guid("ce40ea29-e665-4a37-858b-e7d2359cdd4f")
                         },
                         new
                         {
-                            Id = "91b1aa6d-bd4a-43e0-ad89-e672709e35fe",
+                            Id = new Guid("91b1aa6d-bd4a-43e0-ad89-e672709e35fe"),
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Sample LINQ Tests",
                             Name = "LINQ Test",
-                            UserId = "a8a4828c-60f0-4f99-bbe6-229df1d098a2"
+                            UserId = new Guid("a8a4828c-60f0-4f99-bbe6-229df1d098a2")
                         },
                         new
                         {
-                            Id = "c23f9ea6-50a9-417c-89bb-15194cc2787b",
+                            Id = new Guid("c23f9ea6-50a9-417c-89bb-15194cc2787b"),
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Sample Javascript Tests",
                             Name = "Vanilla JS Test",
-                            UserId = "a8a4828c-60f0-4f99-bbe6-229df1d098a2"
+                            UserId = new Guid("a8a4828c-60f0-4f99-bbe6-229df1d098a2")
                         });
                 });
 
             modelBuilder.Entity("TestApp.Data.Entity.Tests.TestAnswer", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("AnswerText")
                         .HasColumnType("nvarchar(max)");
@@ -91,8 +93,8 @@ namespace TestApp.Data.Migrations
                     b.Property<bool>("IsCorrect")
                         .HasColumnType("bit");
 
-                    b.Property<string>("QuestionId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("QuestionId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -103,538 +105,539 @@ namespace TestApp.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "00b6a320-3940-402a-9883-0d562f1c2f98",
+                            Id = new Guid("6f7e1f35-c0e9-4896-a111-ec7408fbb141"),
                             AnswerText = "public static void Program()",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "3185b7d6-85b1-4866-8fe2-e287965b841f"
+                            QuestionId = new Guid("c3c83d8d-2b6a-4aff-94b8-850c231155d3")
                         },
                         new
                         {
-                            Id = "ef3136cc-fcdf-4e7e-8444-e07d221e18c2",
+                            Id = new Guid("a69c5de4-c7d1-4a8f-8ad1-63afffc92814"),
                             AnswerText = "public static void Main()",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = true,
-                            QuestionId = "3185b7d6-85b1-4866-8fe2-e287965b841f"
+                            QuestionId = new Guid("c3c83d8d-2b6a-4aff-94b8-850c231155d3")
                         },
                         new
                         {
-                            Id = "09e99bee-b2c4-4927-9c65-26bd62bb36fe",
+                            Id = new Guid("df60b121-e699-4619-9121-29b13557c969"),
                             AnswerText = "public static void main()",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "3185b7d6-85b1-4866-8fe2-e287965b841f"
+                            QuestionId = new Guid("c3c83d8d-2b6a-4aff-94b8-850c231155d3")
                         },
                         new
                         {
-                            Id = "bf7c693c-d6d1-406e-ae89-d243865c5a43",
-                            AnswerText = "None of the above",
+                            Id = new Guid("bab69880-3e3c-4d18-a5c3-da80ec91f424"),
+                            AnswerText = "None of the presented",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "3185b7d6-85b1-4866-8fe2-e287965b841f"
+                            QuestionId = new Guid("c3c83d8d-2b6a-4aff-94b8-850c231155d3")
                         },
                         new
                         {
-                            Id = "c1cd5444-a65d-4e33-9050-208ec88c9805",
+                            Id = new Guid("822ba52d-ce43-4627-8686-2a5fd20f69ef"),
                             AnswerText = "Int32",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "27669b19-c256-4065-a7b5-432bb44da2c7"
+                            QuestionId = new Guid("b3ce3b36-c636-47ee-a8f2-be1d6457590e")
                         },
                         new
                         {
-                            Id = "f8ff703c-1fd8-4f10-b662-30661cb3c870",
+                            Id = new Guid("0b6408e9-e232-4199-a937-199bd6d379de"),
                             AnswerText = "Double",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "27669b19-c256-4065-a7b5-432bb44da2c7"
+                            QuestionId = new Guid("b3ce3b36-c636-47ee-a8f2-be1d6457590e")
                         },
                         new
                         {
-                            Id = "51e7a3b7-c90e-4a14-8f93-aefeb4174993",
+                            Id = new Guid("ae4c57eb-ac49-49e4-bb3d-7b6d75d0e35f"),
                             AnswerText = "Decimal",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "27669b19-c256-4065-a7b5-432bb44da2c7"
+                            QuestionId = new Guid("b3ce3b36-c636-47ee-a8f2-be1d6457590e")
                         },
                         new
                         {
-                            Id = "2e7e27fa-4369-4b24-ac9a-8e39ea073895",
+                            Id = new Guid("45cec12f-5f6a-4aa0-bb2d-99262febad94"),
                             AnswerText = "All the above",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = true,
-                            QuestionId = "27669b19-c256-4065-a7b5-432bb44da2c7"
+                            QuestionId = new Guid("b3ce3b36-c636-47ee-a8f2-be1d6457590e")
                         },
                         new
                         {
-                            Id = "9162071d-768f-4563-8d74-1a1f6c0c05df",
+                            Id = new Guid("8a2a75ed-3804-4ac7-bfc4-b6b1fb26fb1b"),
                             AnswerText = "String",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = true,
-                            QuestionId = "b8ff191d-ccaa-4f3a-b447-acfc9ee7fc05"
+                            QuestionId = new Guid("92aeaa44-ac36-41b1-8c05-fedb3d4984e1")
                         },
                         new
                         {
-                            Id = "bfccf393-e4f8-41a5-9e22-cf1335aa472d",
+                            Id = new Guid("ece4d187-f377-422e-bbe4-073004ef2856"),
                             AnswerText = "Double",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "b8ff191d-ccaa-4f3a-b447-acfc9ee7fc05"
+                            QuestionId = new Guid("92aeaa44-ac36-41b1-8c05-fedb3d4984e1")
                         },
                         new
                         {
-                            Id = "3a371e83-3874-4f47-940d-9f40d11d3e3a",
+                            Id = new Guid("ec933088-246a-41c6-8d0f-9664e9ef77d5"),
                             AnswerText = "Long",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "b8ff191d-ccaa-4f3a-b447-acfc9ee7fc05"
+                            QuestionId = new Guid("92aeaa44-ac36-41b1-8c05-fedb3d4984e1")
                         },
                         new
                         {
-                            Id = "dc051ff9-0deb-446a-ac78-d4907e43078f",
+                            Id = new Guid("3854cf18-2df2-4cea-950a-87f3bc0079bf"),
                             AnswerText = "All the above",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "b8ff191d-ccaa-4f3a-b447-acfc9ee7fc05"
+                            QuestionId = new Guid("92aeaa44-ac36-41b1-8c05-fedb3d4984e1")
                         },
                         new
                         {
-                            Id = "4c08338b-e0f1-41a7-8988-a9d240b85d5b",
+                            Id = new Guid("44fb38dd-b2ea-48ab-863b-c785c0ce0e30"),
                             AnswerText = "It allows assignment of null to reference type.",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "0ad888e5-3db1-422c-a5bf-d3fede49a6d4"
+                            QuestionId = new Guid("8891f8a7-9bbc-4a47-a143-99721b2cdf9b")
                         },
                         new
                         {
-                            Id = "d864185d-97b3-417a-892b-7a29455b90e5",
+                            Id = new Guid("14c780ee-6d60-4536-a111-ac606871ad73"),
                             AnswerText = "It allows assignment of null to value type.",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = true,
-                            QuestionId = "0ad888e5-3db1-422c-a5bf-d3fede49a6d4"
+                            QuestionId = new Guid("8891f8a7-9bbc-4a47-a143-99721b2cdf9b")
                         },
                         new
                         {
-                            Id = "889ed162-b77a-4e7e-bd29-882486bbf168",
+                            Id = new Guid("4f375080-95ec-415d-b959-e2aad06f0666"),
                             AnswerText = "It allows assignment of null to static class.",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "0ad888e5-3db1-422c-a5bf-d3fede49a6d4"
+                            QuestionId = new Guid("8891f8a7-9bbc-4a47-a143-99721b2cdf9b")
                         },
                         new
                         {
-                            Id = "7961ce25-8887-497e-9b11-25657902f057",
+                            Id = new Guid("9d0376a8-c448-45a0-8a11-f79e524d083e"),
                             AnswerText = "None of the above",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "0ad888e5-3db1-422c-a5bf-d3fede49a6d4"
+                            QuestionId = new Guid("8891f8a7-9bbc-4a47-a143-99721b2cdf9b")
                         },
                         new
                         {
-                            Id = "10533958-cf56-4868-8103-785791835046",
+                            Id = new Guid("d7804de1-c878-4e97-8e73-e0037b23e96c"),
                             AnswerText = "Reference type",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "5a51d21e-5a17-4dc1-b892-e1abf27f92c4"
+                            QuestionId = new Guid("e264bfcd-71d2-4a66-9f29-0e04fe319b3d")
                         },
                         new
                         {
-                            Id = "6ad7dff2-12f8-44f9-91f7-29e701c49bbe",
+                            Id = new Guid("f7cf511f-c7c0-4fcd-9f1e-3e34ce6ee54d"),
                             AnswerText = "Value type",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = true,
-                            QuestionId = "5a51d21e-5a17-4dc1-b892-e1abf27f92c4"
+                            QuestionId = new Guid("e264bfcd-71d2-4a66-9f29-0e04fe319b3d")
                         },
                         new
                         {
-                            Id = "b9924313-5ec7-482f-bdd0-3b7f757c4b50",
+                            Id = new Guid("a6567315-34d0-4bc4-b572-651cf46b118e"),
                             AnswerText = "Class type",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "5a51d21e-5a17-4dc1-b892-e1abf27f92c4"
+                            QuestionId = new Guid("e264bfcd-71d2-4a66-9f29-0e04fe319b3d")
                         },
                         new
                         {
-                            Id = "88aff19b-1eb3-49cc-a531-2589875c5900",
+                            Id = new Guid("fe84c34b-747f-4e1e-80ab-7090c16d724e"),
                             AnswerText = "None of the above",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "5a51d21e-5a17-4dc1-b892-e1abf27f92c4"
+                            QuestionId = new Guid("e264bfcd-71d2-4a66-9f29-0e04fe319b3d")
                         },
                         new
                         {
-                            Id = "c8b9035c-9bf0-43c3-81e0-0f514cc68c56",
+                            Id = new Guid("81878b28-547e-42a1-b051-f71cd7dd7308"),
                             AnswerText = "Link-List Inner Query",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "5e56ae65-891b-4f87-a5b1-37a9798b2e53"
+                            QuestionId = new Guid("673bd0c7-18fa-4bfc-a85d-e328f998985c")
                         },
                         new
                         {
-                            Id = "f2cc79d5-e09a-4fd1-a309-0ab76930080e",
+                            Id = new Guid("e8024eb7-541f-44f8-ac97-3de2bb0d088a"),
                             AnswerText = "Language-Integrated Query",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = true,
-                            QuestionId = "5e56ae65-891b-4f87-a5b1-37a9798b2e53"
+                            QuestionId = new Guid("673bd0c7-18fa-4bfc-a85d-e328f998985c")
                         },
                         new
                         {
-                            Id = "9ec8eada-e1e6-4076-9703-e578e5508055",
+                            Id = new Guid("eb0e62cf-cb80-4455-bff1-c743217e6173"),
                             AnswerText = "Linked-Integrated Query",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "5e56ae65-891b-4f87-a5b1-37a9798b2e53"
+                            QuestionId = new Guid("673bd0c7-18fa-4bfc-a85d-e328f998985c")
                         },
                         new
                         {
-                            Id = "22333f93-cc7b-4a33-8b8f-8e8c7249d118",
+                            Id = new Guid("e51d9f95-2614-4ac3-a429-28c90acbad5b"),
                             AnswerText = "Lazy Integration Query",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "5e56ae65-891b-4f87-a5b1-37a9798b2e53"
+                            QuestionId = new Guid("673bd0c7-18fa-4bfc-a85d-e328f998985c")
                         },
                         new
                         {
-                            Id = "22a92b49-45d8-4bd1-9fc8-f4237bf91e59",
+                            Id = new Guid("eaf7838e-1003-4d24-8e64-e0f35451eec3"),
                             AnswerText = "C# and F#",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "59ecff8a-3952-48c0-870b-59db1f6b060a"
+                            QuestionId = new Guid("85216c10-e07e-4737-95ce-6ecd3d31963c")
                         },
                         new
                         {
-                            Id = "20a6505d-24b8-46f8-944a-9791a164e24b",
+                            Id = new Guid("7b3ea024-2cec-4579-a6bf-403e9b25b314"),
                             AnswerText = "VB and F#",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "59ecff8a-3952-48c0-870b-59db1f6b060a"
+                            QuestionId = new Guid("85216c10-e07e-4737-95ce-6ecd3d31963c")
                         },
                         new
                         {
-                            Id = "c4163c84-f5e9-468a-92c5-0a50f35eb1e8",
+                            Id = new Guid("23659ead-2549-4860-b5aa-2c4ec047f0ac"),
                             AnswerText = "C# and VB",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = true,
-                            QuestionId = "59ecff8a-3952-48c0-870b-59db1f6b060a"
+                            QuestionId = new Guid("85216c10-e07e-4737-95ce-6ecd3d31963c")
                         },
                         new
                         {
-                            Id = "fa132b69-e740-433c-af31-7dfc9be1dbdc",
+                            Id = new Guid("8bded336-4090-4944-a8fc-1b3d60eeb816"),
                             AnswerText = "All the above",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "59ecff8a-3952-48c0-870b-59db1f6b060a"
+                            QuestionId = new Guid("85216c10-e07e-4737-95ce-6ecd3d31963c")
                         },
                         new
                         {
-                            Id = "622fffc8-a8fa-4ab3-ab98-838072958bf7",
+                            Id = new Guid("1729f838-9e58-475e-8284-b6bac932e881"),
                             AnswerText = "Object collection",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = true,
-                            QuestionId = "698f456f-f913-4858-9be2-f5184bc5944a"
+                            QuestionId = new Guid("5c705c54-7454-4607-9c96-7b42a64fdc15")
                         },
                         new
                         {
-                            Id = "7e44084e-fa5e-4be3-8f27-158d2b4cf1db",
+                            Id = new Guid("ec8cb4c6-fdeb-4632-9967-203d0ef2e6bf"),
                             AnswerText = "Double",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "698f456f-f913-4858-9be2-f5184bc5944a"
+                            QuestionId = new Guid("5c705c54-7454-4607-9c96-7b42a64fdc15")
                         },
                         new
                         {
-                            Id = "cb065ff5-63b4-4e07-8738-d8e8afb11cce",
+                            Id = new Guid("f42a1798-00b9-4988-a0ff-0fed9b2c817a"),
                             AnswerText = "Long",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "698f456f-f913-4858-9be2-f5184bc5944a"
+                            QuestionId = new Guid("5c705c54-7454-4607-9c96-7b42a64fdc15")
                         },
                         new
                         {
-                            Id = "1ac42230-c05a-4e84-948a-3aa80ef3cd4e",
+                            Id = new Guid("768cca7f-d429-4af6-9a83-81f42b9c4132"),
                             AnswerText = "All the above",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "698f456f-f913-4858-9be2-f5184bc5944a"
+                            QuestionId = new Guid("5c705c54-7454-4607-9c96-7b42a64fdc15")
                         },
                         new
                         {
-                            Id = "35223d3d-b9a9-4937-bb2e-17db43ba8c09",
+                            Id = new Guid("cad1c9ca-5810-44e5-a835-5afa4bf29a13"),
                             AnswerText = "LINQ API is a bunch of extension methods included in System.Linq.Enumerable and System.Linq.Queryable class.",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = true,
-                            QuestionId = "127d9f22-064a-4470-8b03-d7c4b85948ef"
+                            QuestionId = new Guid("61164f2d-70e1-410e-b03a-21d78e00d008")
                         },
                         new
                         {
-                            Id = "19fdf0b4-056e-47fe-8492-316083a5bb7d",
+                            Id = new Guid("0593f03b-94d8-4ef0-a2cf-2294910b14d4"),
                             AnswerText = "LINQ API is a bunch of abstract methods included in Enumerable and Queryable classes.",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "127d9f22-064a-4470-8b03-d7c4b85948ef"
+                            QuestionId = new Guid("61164f2d-70e1-410e-b03a-21d78e00d008")
                         },
                         new
                         {
-                            Id = "a9dc1df5-1e10-4cd2-9320-0f9b29dad640",
+                            Id = new Guid("485f32e3-bc29-4a82-a1c6-5fa777bb0afa"),
                             AnswerText = "LINQ API is bunch of queries written in C# and VB.",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "127d9f22-064a-4470-8b03-d7c4b85948ef"
+                            QuestionId = new Guid("61164f2d-70e1-410e-b03a-21d78e00d008")
                         },
                         new
                         {
-                            Id = "9a93841c-ba29-41d2-bbc5-17509b775cfe",
+                            Id = new Guid("18525932-8182-4736-82bf-25836ee8fb7c"),
                             AnswerText = "None of the above",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "127d9f22-064a-4470-8b03-d7c4b85948ef"
+                            QuestionId = new Guid("61164f2d-70e1-410e-b03a-21d78e00d008")
                         },
                         new
                         {
-                            Id = "9406536a-b102-4f99-b6e5-096a079e3bb0",
+                            Id = new Guid("4da954ad-7308-4c0e-8ebd-4d75be0d4f22"),
                             AnswerText = "Client",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "cf8d414b-0a84-4961-9049-52b6c1756047"
+                            QuestionId = new Guid("b77d774d-f697-4b01-89c1-214f0ccd9fb1")
                         },
                         new
                         {
-                            Id = "0cb8e21f-468b-45a9-862c-d270cb781b34",
+                            Id = new Guid("9b063b12-3dcb-4359-baec-f505aab5196a"),
                             AnswerText = "Server",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = true,
-                            QuestionId = "cf8d414b-0a84-4961-9049-52b6c1756047"
+                            QuestionId = new Guid("b77d774d-f697-4b01-89c1-214f0ccd9fb1")
                         },
                         new
                         {
-                            Id = "fb4ed8f5-bd3d-4a7e-ae96-bc7ea703334b",
+                            Id = new Guid("9bd6b78a-fc61-4e13-8cb9-2da7c4e3fb3e"),
                             AnswerText = "Both, server and client",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "cf8d414b-0a84-4961-9049-52b6c1756047"
+                            QuestionId = new Guid("b77d774d-f697-4b01-89c1-214f0ccd9fb1")
                         },
                         new
                         {
-                            Id = "91361bde-fd1d-4dcb-8a42-62fa8ca924dd",
+                            Id = new Guid("252f0ba5-82a1-4db6-a9fd-2b1654e8b714"),
                             AnswerText = "Browser",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "cf8d414b-0a84-4961-9049-52b6c1756047"
+                            QuestionId = new Guid("b77d774d-f697-4b01-89c1-214f0ccd9fb1")
                         },
                         new
                         {
-                            Id = "fc5f46c4-769f-421c-b3f0-b8de6babcf63",
+                            Id = new Guid("535ae009-8f31-4171-b3a2-0679855b20e1"),
                             AnswerText = "Synchronous",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "cf8d123f-0a84-4961-f029-12h6x1756047"
+                            QuestionId = new Guid("dc5d66d9-589d-4c85-b8dd-218c405eeef0")
                         },
                         new
                         {
-                            Id = "4d7592d2-8f1d-405d-bef9-9f51e40f84ab",
+                            Id = new Guid("01c0a297-089f-4eeb-9a93-bb495a3a76e7"),
                             AnswerText = "Multi-threaded",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "cf8d123f-0a84-4961-f029-12h6x1756047"
+                            QuestionId = new Guid("dc5d66d9-589d-4c85-b8dd-218c405eeef0")
                         },
                         new
                         {
-                            Id = "40a2d3f2-8bf8-4cd7-90c2-3f82843239b0",
+                            Id = new Guid("53b89961-2f90-45fe-91a9-804afd2d3688"),
                             AnswerText = "Asynchronous",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = true,
-                            QuestionId = "cf8d123f-0a84-4961-f029-12h6x1756047"
+                            QuestionId = new Guid("dc5d66d9-589d-4c85-b8dd-218c405eeef0")
                         },
                         new
                         {
-                            Id = "25fc59e9-e0ad-4f7e-8641-9c29cf5a9131",
+                            Id = new Guid("0423b563-e600-4c9a-ab7c-6273b0a10712"),
                             AnswerText = "None of the above",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "cf8d123f-0a84-4961-f029-12h6x1756047"
+                            QuestionId = new Guid("dc5d66d9-589d-4c85-b8dd-218c405eeef0")
                         },
                         new
                         {
-                            Id = "e5230b4c-3aee-4558-943d-5801ab60b5e7",
+                            Id = new Guid("804fe3a2-5723-4eb9-96b0-1e66d4bff49a"),
                             AnswerText = "Windows",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "692235e8-1fb5-449e-9d43-b1a807cf3ca6"
+                            QuestionId = new Guid("d277edea-70b3-4f61-bf10-1e0b4cd61b36")
                         },
                         new
                         {
-                            Id = "fdcc795f-0ff8-43c5-9008-9847d78f556c",
+                            Id = new Guid("6ca63fd5-cc34-4baa-a792-2476b2268c5e"),
                             AnswerText = "Mac",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "692235e8-1fb5-449e-9d43-b1a807cf3ca6"
+                            QuestionId = new Guid("d277edea-70b3-4f61-bf10-1e0b4cd61b36")
                         },
                         new
                         {
-                            Id = "b6e193de-e731-4790-af11-fcf08d3bcd1c",
+                            Id = new Guid("7437e3ad-de5d-4edb-9dcc-1812d4bdb838"),
                             AnswerText = "Unix/Linux",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "692235e8-1fb5-449e-9d43-b1a807cf3ca6"
+                            QuestionId = new Guid("d277edea-70b3-4f61-bf10-1e0b4cd61b36")
                         },
                         new
                         {
-                            Id = "84395c79-3f8b-44b6-abe4-07a65dca7433",
+                            Id = new Guid("11ed72ff-c54d-4734-9957-75f16d146da0"),
                             AnswerText = "All",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = true,
-                            QuestionId = "692235e8-1fb5-449e-9d43-b1a807cf3ca6"
+                            QuestionId = new Guid("d277edea-70b3-4f61-bf10-1e0b4cd61b36")
                         },
                         new
                         {
-                            Id = "d7127099-8fe8-4c91-ba4f-547d7ee43c8a",
+                            Id = new Guid("25aecff5-9104-4fa0-a8e2-6b84b07d502f"),
                             AnswerText = "Testing node.js/JavaScript expressions",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = true,
-                            QuestionId = "0508062a-da04-4349-9832-113b1405cfff"
+                            QuestionId = new Guid("14a8c8b4-9771-4a65-8471-87d106bde29d")
                         },
                         new
                         {
-                            Id = "8a51a2ee-a42e-49c2-bdd2-2c1fd3c0324c",
+                            Id = new Guid("03c95302-a79e-4944-9746-3c0a88d42bde"),
                             AnswerText = "Executing browser’s JavaScript expressions.",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "0508062a-da04-4349-9832-113b1405cfff"
+                            QuestionId = new Guid("14a8c8b4-9771-4a65-8471-87d106bde29d")
                         },
                         new
                         {
-                            Id = "ad0bca29-b669-4da2-ac09-adf8b2d8c1d7",
+                            Id = new Guid("b6833840-6beb-4826-8835-6a4a7d830b21"),
                             AnswerText = "The preview of node.js application.",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "0508062a-da04-4349-9832-113b1405cfff"
+                            QuestionId = new Guid("14a8c8b4-9771-4a65-8471-87d106bde29d")
                         },
                         new
                         {
-                            Id = "1c92d6b2-e0de-41a3-8000-38eeb6eb9b9b",
+                            Id = new Guid("0e797347-cb11-4bad-9417-5571e746d968"),
                             AnswerText = "None of the above.",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "0508062a-da04-4349-9832-113b1405cfff"
+                            QuestionId = new Guid("14a8c8b4-9771-4a65-8471-87d106bde29d")
                         },
                         new
                         {
-                            Id = "fdb4f948-2c6e-4dd5-99fb-747601ea0186",
+                            Id = new Guid("6593e507-9573-4107-ab71-7c5da704e80e"),
                             AnswerText = "True",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = true,
-                            QuestionId = "1834f0be-b24e-47cf-b609-d5c184cb6a02"
+                            QuestionId = new Guid("7735c87d-6eb9-444f-9101-7e19c67d0e4d")
                         },
                         new
                         {
-                            Id = "a067d682-297f-4a0d-b6e2-fee28020934d",
+                            Id = new Guid("739461ec-7ffd-435d-8fab-43948a14e1ad"),
                             AnswerText = "False",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "1834f0be-b24e-47cf-b609-d5c184cb6a02"
+                            QuestionId = new Guid("7735c87d-6eb9-444f-9101-7e19c67d0e4d")
                         },
                         new
                         {
-                            Id = "94da67c1-e633-4b4c-9008-abc7a4b34a9c",
+                            Id = new Guid("120eb6cf-4946-421b-84c0-a8603ab7968e"),
                             AnswerText = "<JavaScript></JavaScript>",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "b997c953-a860-4a0d-a403-ec689ff60d46"
+                            QuestionId = new Guid("480a2f8a-7a30-4b11-a77b-44da6991978f")
                         },
                         new
                         {
-                            Id = "2f8a01ee-d417-49d3-b794-f2c8ac51574a",
+                            Id = new Guid("be9e0328-77c6-4ca0-a614-6fcea686ae62"),
                             AnswerText = "<script></script>",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = true,
-                            QuestionId = "b997c953-a860-4a0d-a403-ec689ff60d46"
+                            QuestionId = new Guid("480a2f8a-7a30-4b11-a77b-44da6991978f")
                         },
                         new
                         {
-                            Id = "9bb0cf8f-13f2-4bae-bea7-725aeba678ba",
+                            Id = new Guid("b008d0ff-d28c-4778-9e91-0c1f4ded39ea"),
                             AnswerText = "<code></code>",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "b997c953-a860-4a0d-a403-ec689ff60d46"
+                            QuestionId = new Guid("480a2f8a-7a30-4b11-a77b-44da6991978f")
                         },
                         new
                         {
-                            Id = "7b2b255d-3490-40af-81b9-e8ee9375b322",
+                            Id = new Guid("0222f55c-e5a0-4bba-b7a8-d9ccae31fa1f"),
                             AnswerText = "<head></head>",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "b997c953-a860-4a0d-a403-ec689ff60d46"
+                            QuestionId = new Guid("480a2f8a-7a30-4b11-a77b-44da6991978f")
                         },
                         new
                         {
-                            Id = "6c727e7e-3bd7-4b73-86fa-c24bd5c6ea37",
+                            Id = new Guid("b7edaa47-ba2d-46f8-a3ab-d7b7d3a15526"),
                             AnswerText = "new",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "6b119880-12e5-4510-aa14-83a51f94adb6"
+                            QuestionId = new Guid("f95b3f73-dd10-4210-b049-2f85f90f462e")
                         },
                         new
                         {
-                            Id = "d862e0f3-c591-4b3b-ae0b-24b2435b350a",
+                            Id = new Guid("0f7da0eb-a6e2-4c41-bbee-b50cc854c7e6"),
                             AnswerText = "int",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "6b119880-12e5-4510-aa14-83a51f94adb6"
+                            QuestionId = new Guid("f95b3f73-dd10-4210-b049-2f85f90f462e")
                         },
                         new
                         {
-                            Id = "b3beb7cc-4908-4f0b-a779-80fc3809698c",
+                            Id = new Guid("8654d78f-4617-4a26-ac3e-c7ae3d6451a4"),
                             AnswerText = "string",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "6b119880-12e5-4510-aa14-83a51f94adb6"
+                            QuestionId = new Guid("f95b3f73-dd10-4210-b049-2f85f90f462e")
                         },
                         new
                         {
-                            Id = "b333657b-6dbc-4f35-ac9c-f65520ca78a4",
+                            Id = new Guid("5c9a08f9-fe22-4870-8c1c-df9006c8b445"),
                             AnswerText = "let/const",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = true,
-                            QuestionId = "6b119880-12e5-4510-aa14-83a51f94adb6"
+                            QuestionId = new Guid("f95b3f73-dd10-4210-b049-2f85f90f462e")
                         },
                         new
                         {
-                            Id = "d4e94fed-de96-443e-b7b7-850a62a0e170",
+                            Id = new Guid("830f49a6-b92b-4eeb-bcc0-6f68004e619c"),
                             AnswerText = "String",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "73eddcbd-5964-4d2c-ab8d-85dd0d6ed6cd"
+                            QuestionId = new Guid("27d793c6-a03e-40f0-a998-f9f147009247")
                         },
                         new
                         {
-                            Id = "8eaef720-cb19-486f-b9a7-9661f28ceccb",
+                            Id = new Guid("108cc96f-07cc-446d-b290-257cc2b634d1"),
                             AnswerText = "Number",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "73eddcbd-5964-4d2c-ab8d-85dd0d6ed6cd"
+                            QuestionId = new Guid("27d793c6-a03e-40f0-a998-f9f147009247")
                         },
                         new
                         {
-                            Id = "301773f2-73b7-4d84-aec6-ecc80fbb97e9",
+                            Id = new Guid("660d9ff9-d5de-461b-8e1b-198f99b3c915"),
                             AnswerText = "Boolean",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = false,
-                            QuestionId = "73eddcbd-5964-4d2c-ab8d-85dd0d6ed6cd"
+                            QuestionId = new Guid("27d793c6-a03e-40f0-a998-f9f147009247")
                         },
                         new
                         {
-                            Id = "1351da42-0a07-4f08-8969-8fd3223de6cf",
+                            Id = new Guid("338fc9a9-e81e-4eb1-add0-2a2e2f723448"),
                             AnswerText = "All",
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsCorrect = true,
-                            QuestionId = "73eddcbd-5964-4d2c-ab8d-85dd0d6ed6cd"
+                            QuestionId = new Guid("27d793c6-a03e-40f0-a998-f9f147009247")
                         });
                 });
 
             modelBuilder.Entity("TestApp.Data.Entity.Tests.TestQuestion", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -642,141 +645,142 @@ namespace TestApp.Data.Migrations
                     b.Property<string>("QuestionText")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("TestId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("TestId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
                     b.HasIndex("TestId");
 
-                    b.ToTable("TestQuestion");
+                    b.ToTable("TestQuestions");
 
                     b.HasData(
                         new
                         {
-                            Id = "3185b7d6-85b1-4866-8fe2-e287965b841f",
+                            Id = new Guid("c3c83d8d-2b6a-4aff-94b8-850c231155d3"),
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             QuestionText = "Which of the following methods is an entry point in the C# console program?",
-                            TestId = "f14f0184-0b15-431f-b4e3-853224eed6dd"
+                            TestId = new Guid("f14f0184-0b15-431f-b4e3-853224eed6dd")
                         },
                         new
                         {
-                            Id = "27669b19-c256-4065-a7b5-432bb44da2c7",
+                            Id = new Guid("b3ce3b36-c636-47ee-a8f2-be1d6457590e"),
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             QuestionText = "Which of the followings are value types in C#?",
-                            TestId = "f14f0184-0b15-431f-b4e3-853224eed6dd"
+                            TestId = new Guid("f14f0184-0b15-431f-b4e3-853224eed6dd")
                         },
                         new
                         {
-                            Id = "b8ff191d-ccaa-4f3a-b447-acfc9ee7fc05",
+                            Id = new Guid("92aeaa44-ac36-41b1-8c05-fedb3d4984e1"),
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             QuestionText = "Which of the following is a reference type in C#?",
-                            TestId = "f14f0184-0b15-431f-b4e3-853224eed6dd"
+                            TestId = new Guid("f14f0184-0b15-431f-b4e3-853224eed6dd")
                         },
                         new
                         {
-                            Id = "0ad888e5-3db1-422c-a5bf-d3fede49a6d4",
+                            Id = new Guid("8891f8a7-9bbc-4a47-a143-99721b2cdf9b"),
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             QuestionText = "What is the nullable type in C#?",
-                            TestId = "f14f0184-0b15-431f-b4e3-853224eed6dd"
+                            TestId = new Guid("f14f0184-0b15-431f-b4e3-853224eed6dd")
                         },
                         new
                         {
-                            Id = "5a51d21e-5a17-4dc1-b892-e1abf27f92c4",
+                            Id = new Guid("e264bfcd-71d2-4a66-9f29-0e04fe319b3d"),
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             QuestionText = "Struct is a _____.",
-                            TestId = "f14f0184-0b15-431f-b4e3-853224eed6dd"
+                            TestId = new Guid("f14f0184-0b15-431f-b4e3-853224eed6dd")
                         },
                         new
                         {
-                            Id = "5e56ae65-891b-4f87-a5b1-37a9798b2e53",
+                            Id = new Guid("673bd0c7-18fa-4bfc-a85d-e328f998985c"),
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             QuestionText = "The full form of LINQ is _______.",
-                            TestId = "91b1aa6d-bd4a-43e0-ad89-e672709e35fe"
+                            TestId = new Guid("91b1aa6d-bd4a-43e0-ad89-e672709e35fe")
                         },
                         new
                         {
-                            Id = "59ecff8a-3952-48c0-870b-59db1f6b060a",
+                            Id = new Guid("85216c10-e07e-4737-95ce-6ecd3d31963c"),
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             QuestionText = "LINQ supports ________ syntax.",
-                            TestId = "91b1aa6d-bd4a-43e0-ad89-e672709e35fe"
+                            TestId = new Guid("91b1aa6d-bd4a-43e0-ad89-e672709e35fe")
                         },
                         new
                         {
-                            Id = "698f456f-f913-4858-9be2-f5184bc5944a",
+                            Id = new Guid("5c705c54-7454-4607-9c96-7b42a64fdc15"),
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             QuestionText = "Which of the following supports LINQ queries?",
-                            TestId = "91b1aa6d-bd4a-43e0-ad89-e672709e35fe"
+                            TestId = new Guid("91b1aa6d-bd4a-43e0-ad89-e672709e35fe")
                         },
                         new
                         {
-                            Id = "127d9f22-064a-4470-8b03-d7c4b85948ef",
+                            Id = new Guid("61164f2d-70e1-410e-b03a-21d78e00d008"),
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             QuestionText = "Which of the following statement is TRUE?",
-                            TestId = "91b1aa6d-bd4a-43e0-ad89-e672709e35fe"
+                            TestId = new Guid("91b1aa6d-bd4a-43e0-ad89-e672709e35fe")
                         },
                         new
                         {
-                            Id = "cf8d414b-0a84-4961-9049-52b6c1756047",
+                            Id = new Guid("b77d774d-f697-4b01-89c1-214f0ccd9fb1"),
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             QuestionText = "Node.js runs on __________",
-                            TestId = "b5902bf9-bea2-4fac-96bc-52c0ed52e6c7"
+                            TestId = new Guid("b5902bf9-bea2-4fac-96bc-52c0ed52e6c7")
                         },
                         new
                         {
-                            Id = "cf8d123f-0a84-4961-f029-12h6x1756047",
+                            Id = new Guid("dc5d66d9-589d-4c85-b8dd-218c405eeef0"),
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             QuestionText = "Node.js is ________ by default.",
-                            TestId = "b5902bf9-bea2-4fac-96bc-52c0ed52e6c7"
+                            TestId = new Guid("b5902bf9-bea2-4fac-96bc-52c0ed52e6c7")
                         },
                         new
                         {
-                            Id = "692235e8-1fb5-449e-9d43-b1a807cf3ca6",
+                            Id = new Guid("d277edea-70b3-4f61-bf10-1e0b4cd61b36"),
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             QuestionText = "Node.js supports which of the following platform?",
-                            TestId = "b5902bf9-bea2-4fac-96bc-52c0ed52e6c7"
+                            TestId = new Guid("b5902bf9-bea2-4fac-96bc-52c0ed52e6c7")
                         },
                         new
                         {
-                            Id = "0508062a-da04-4349-9832-113b1405cfff",
+                            Id = new Guid("14a8c8b4-9771-4a65-8471-87d106bde29d"),
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             QuestionText = "Node.js terminal (REPL) is used for _________.",
-                            TestId = "b5902bf9-bea2-4fac-96bc-52c0ed52e6c7"
+                            TestId = new Guid("b5902bf9-bea2-4fac-96bc-52c0ed52e6c7")
                         },
                         new
                         {
-                            Id = "1834f0be-b24e-47cf-b609-d5c184cb6a02",
+                            Id = new Guid("7735c87d-6eb9-444f-9101-7e19c67d0e4d"),
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             QuestionText = "JavaScript is ECMAScript",
-                            TestId = "c23f9ea6-50a9-417c-89bb-15194cc2787b"
+                            TestId = new Guid("c23f9ea6-50a9-417c-89bb-15194cc2787b")
                         },
                         new
                         {
-                            Id = "b997c953-a860-4a0d-a403-ec689ff60d46",
+                            Id = new Guid("480a2f8a-7a30-4b11-a77b-44da6991978f"),
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             QuestionText = "JavaScript written under which of the following tag?",
-                            TestId = "c23f9ea6-50a9-417c-89bb-15194cc2787b"
+                            TestId = new Guid("c23f9ea6-50a9-417c-89bb-15194cc2787b")
                         },
                         new
                         {
-                            Id = "6b119880-12e5-4510-aa14-83a51f94adb6",
+                            Id = new Guid("f95b3f73-dd10-4210-b049-2f85f90f462e"),
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             QuestionText = "A variable in JavaScript declared with which of the following keyword?",
-                            TestId = "c23f9ea6-50a9-417c-89bb-15194cc2787b"
+                            TestId = new Guid("c23f9ea6-50a9-417c-89bb-15194cc2787b")
                         },
                         new
                         {
-                            Id = "73eddcbd-5964-4d2c-ab8d-85dd0d6ed6cd",
+                            Id = new Guid("27d793c6-a03e-40f0-a998-f9f147009247"),
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             QuestionText = "Which of the followings are primitive data types in JavaScript?",
-                            TestId = "c23f9ea6-50a9-417c-89bb-15194cc2787b"
+                            TestId = new Guid("c23f9ea6-50a9-417c-89bb-15194cc2787b")
                         });
                 });
 
             modelBuilder.Entity("TestApp.Data.Entity.Users.AppUser", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -794,14 +798,14 @@ namespace TestApp.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "ce40ea29-e665-4a37-858b-e7d2359cdd4f",
+                            Id = new Guid("ce40ea29-e665-4a37-858b-e7d2359cdd4f"),
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "TestUser@gmail.com",
                             Password = "yP7xXNBu/Hny3XSz7QCNjOgkM7HOkPgVFiXTPr5dwTg="
                         },
                         new
                         {
-                            Id = "a8a4828c-60f0-4f99-bbe6-229df1d098a2",
+                            Id = new Guid("a8a4828c-60f0-4f99-bbe6-229df1d098a2"),
                             CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "TestUser2@gmail.com",
                             Password = "yP7xXNBu/Hny3XSz7QCNjOgkM7HOkPgVFiXTPr5dwTg="
@@ -812,7 +816,9 @@ namespace TestApp.Data.Migrations
                 {
                     b.HasOne("TestApp.Data.Entity.Users.AppUser", "User")
                         .WithMany("Tests")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });
@@ -821,7 +827,9 @@ namespace TestApp.Data.Migrations
                 {
                     b.HasOne("TestApp.Data.Entity.Tests.TestQuestion", "Question")
                         .WithMany("Answers")
-                        .HasForeignKey("QuestionId");
+                        .HasForeignKey("QuestionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Question");
                 });
@@ -830,7 +838,9 @@ namespace TestApp.Data.Migrations
                 {
                     b.HasOne("TestApp.Data.Entity.Tests.Test", "Test")
                         .WithMany("Questions")
-                        .HasForeignKey("TestId");
+                        .HasForeignKey("TestId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Test");
                 });

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace TestApp.Services.Tests
             _globalDataAccess = globalDataAccess;
         }
 
-        public async Task<List<TestQuestionDto>> GetQuestionsWithAnswersByTestIdAsync(string testId, CancellationToken token)
+        public async Task<List<TestQuestionDto>> GetQuestionsWithAnswersByTestIdAsync(Guid testId, CancellationToken token)
         {
             var result = await _globalDataAccess._testQuestionsDataAccess.GetQuestionsWithAnswersByTestIdAsync(testId, token);
             return result.MapToDtos();

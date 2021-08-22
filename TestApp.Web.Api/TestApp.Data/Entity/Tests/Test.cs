@@ -7,7 +7,7 @@ namespace TestApp.Data.Entity.Tests
 {
     public class Test : BaseEntity
     {
-        public string UserId { get; set; }
+        public Guid UserId { get; set; }
         public AppUser User { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }

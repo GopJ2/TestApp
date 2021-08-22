@@ -10,6 +10,7 @@ namespace TestApp.Web.Api.Controllers.Tests
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class TestController : ControllerBase
     {
         private ITestService _testsService;
@@ -18,19 +19,15 @@ namespace TestApp.Web.Api.Controllers.Tests
         {
             _testsService = testService;
         }
-        
+
         [HttpGet("tests")]
-        [Authorize]
         public async Task<IActionResult> GetTasksByUserId(CancellationToken token)
         {
             try
             {
                 var userId = HttpContext.GetUserId();
-                var tests = await _testsService.GetTestsByUserIdAsync(userId, token);
-                
-                return Ok(tests);
-            }
-            catch (Exception e)
+                return Ok(await _testsService.GetTestsByUserIdAsync(userId, token));
+            }catch(Exception e)
             {
                 return BadRequest(e.Message);
             }

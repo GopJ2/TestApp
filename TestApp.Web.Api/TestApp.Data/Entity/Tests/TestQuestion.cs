@@ -8,7 +8,7 @@ namespace TestApp.Data.Entity.Tests
     public class TestQuestion: BaseEntity
     {
         public string QuestionText { get; set; }
-        public string TestId { get; set; }
+        public Guid TestId { get; set; }
         public Test Test { get; set; }
         public List<TestAnswer> Answers { get; set; }
     }

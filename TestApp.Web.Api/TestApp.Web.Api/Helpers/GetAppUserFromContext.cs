@@ -6,7 +6,7 @@ namespace TestApp.Web.Api.Helpers
 {
     public static class GetAppUserFromContext
     {
-        public static string GetUserId(this HttpContext context)
+        public static Guid GetUserId(this HttpContext context)
         {
             var userId = context?.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
@@ -14,8 +14,13 @@ namespace TestApp.Web.Api.Helpers
             {
                 throw new NullReferenceException("No user associated with token");
             }
-            
-            return userId;
+
+            if (Guid.TryParse(userId, out var id))
+            {
+                return id;
+            }
+
+            throw new BadHttpRequestException("Can't parse guid");
         }
     }
 }

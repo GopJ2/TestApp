@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -7,6 +8,6 @@ namespace TestApp.Services.Tests
 {
     public interface ITestQuestionService
     {
-        public Task<List<TestQuestionDto>> GetQuestionsWithAnswersByTestIdAsync(string testId, CancellationToken token);
+        public Task<List<TestQuestionDto>> GetQuestionsWithAnswersByTestIdAsync(Guid testId, CancellationToken token);
     }
 }

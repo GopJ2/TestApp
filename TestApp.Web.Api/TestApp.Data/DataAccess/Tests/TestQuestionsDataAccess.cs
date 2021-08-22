@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -8,18 +9,17 @@ using TestApp.Data.Entity.Tests;
 namespace TestApp.Data.DataAccess.Tests
 {
     public class TestQuestionsDataAccess: BaseDataAccess<TestQuestion>
-    {
-        private ApplicationDbContext _appContext;
-        
+    {        
         internal TestQuestionsDataAccess(ApplicationDbContext applicationContext) : base(applicationContext)
         {
-            _appContext = applicationContext;
         }
 
-        public async Task<List<TestQuestion>> GetQuestionsWithAnswersByTestIdAsync(string testId, CancellationToken token)
+        public Task<List<TestQuestion>> GetQuestionsWithAnswersByTestIdAsync(Guid testId, CancellationToken token)
         {
-            return await _appContext.Set<TestQuestion>().Where(x => x.TestId == testId)
+            return _appContext.TestQuestions
+                .Where(x => x.TestId == testId)
                 .Include(x => x.Answers)
+                .OrderByDescending(x => x.CreatedAt)
                 .ToListAsync(token);
         }
     }

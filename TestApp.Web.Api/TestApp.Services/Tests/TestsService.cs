@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace TestApp.Services.Tests
             _globalDataAccess = globalDataAccess;
         }
 
-        public async Task<List<TestDto>> GetTestsByUserIdAsync(string userId, CancellationToken token)
+        public async Task<List<TestDto>> GetTestsByUserIdAsync(Guid userId, CancellationToken token)
         {
             var testsEntities = await _globalDataAccess._testsDataAccess.GetTestsByUserIdAsync(userId, token);
             return testsEntities.MapToDtos();

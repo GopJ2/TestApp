@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosConfig = {
-    baseURL: 'http://localhost:5000/api',
+    baseURL: 'https://localhost:44381/api',
     timeout: 30000,
 };
 

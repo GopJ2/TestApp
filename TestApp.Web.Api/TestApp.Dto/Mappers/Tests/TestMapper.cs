@@ -9,24 +9,30 @@ namespace TestApp.Dto.Mappers.Tests
     {
         public static TestDto MapToDto(this Test entity)
         {
-            return new TestDto()
+            var dto = new TestDto()
             {
                 Id = entity.Id,
                 UserId = entity.UserId,
                 Name = entity.Name,
                 Description = entity.Description,
-                Questions = entity.Questions.MapToDtos()
             };
+
+            if ((entity.Questions?.Any()).GetValueOrDefault())
+            {
+                dto.Questions = entity.Questions.MapToDtos();
+            }
+
+            return dto;
         }
 
         public static List<TestDto> MapToDtos(this List<Test> entities)
         {
-            if (!(entities?.Any()).GetValueOrDefault())
+            if ((entities?.Any()).GetValueOrDefault())
             {
-                return new List<TestDto>();
+                return entities.Select(x => x.MapToDto()).ToList();
             }
 
-            return entities.Select(x => x.MapToDto()).ToList();
+            return new List<TestDto>();
         }
     }
 }

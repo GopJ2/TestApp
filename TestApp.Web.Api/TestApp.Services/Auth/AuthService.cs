@@ -21,7 +21,7 @@ namespace TestApp.Services.Auth
 
         public async Task<TokenDto> LoginAsync(AuthDto model, CancellationToken cancellationToken)
         {
-            var user = await _dataAccess._appUserDataAccess.GetUserByFieldAsync(x => x.Email == model.Email, cancellationToken);
+            var user = await _dataAccess._appUserDataAccess.GetUserByEmailAsync(model.Email, cancellationToken);
 
             if (user == null || user.Password != PasswordHasherHelper.EncodePassword(model.Password))
             {

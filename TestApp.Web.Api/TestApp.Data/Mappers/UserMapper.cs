@@ -9,6 +9,7 @@ namespace TestApp.Data.Mappers
     {
         public void Configure(EntityTypeBuilder<AppUser> builder)
         {
+            //builder.HasIndex(x => x.Email).IsUnique();
             builder
                 .HasMany<Test>(x => x.Tests)
                 .WithOne(t => t.User)

@@ -15,14 +15,14 @@ namespace TestApp.Data.Seeders.Helper
             {
                 new AppUser()
                 {
-                    Id = "ce40ea29-e665-4a37-858b-e7d2359cdd4f",
+                    Id = Guid.Parse("ce40ea29-e665-4a37-858b-e7d2359cdd4f"),
                     Email = "TestUser@gmail.com",
                     Password = HashPassword("Admin@2021"),
                 },
 
                 new AppUser()
                 {
-                    Id = "a8a4828c-60f0-4f99-bbe6-229df1d098a2",
+                    Id = Guid.Parse("a8a4828c-60f0-4f99-bbe6-229df1d098a2"),
                     Email = "TestUser2@gmail.com",
                     Password = HashPassword("Admin@2021"),
                 }

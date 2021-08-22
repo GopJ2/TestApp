@@ -11,11 +11,11 @@ namespace TestApp.Services.Helper.Jwt
 {
     public static class JwtTokenGenerator
     {
-        public static TokenDto GenerateToken(string id)
+        public static TokenDto GenerateToken(Guid id)
         {
             var authClaims = new List<Claim>
             {
-                new Claim(ClaimTypes.NameIdentifier, id),
+                new Claim(ClaimTypes.NameIdentifier, id.ToString()),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             };
 

@@ -13,6 +13,7 @@ namespace TestApp.Data
         public DbSet<AppUser> AppUsers { get; set; }
         public DbSet<Test> Tests { get; set; }
         public DbSet<TestAnswer> Answers { get; set; }
+        public DbSet<TestQuestion> TestQuestions { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         { }

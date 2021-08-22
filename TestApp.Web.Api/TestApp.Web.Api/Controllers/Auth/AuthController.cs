@@ -1,8 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using TestApp.Dto.Auth;
@@ -24,11 +21,11 @@ namespace TestApp.Web.Api.Controllers.Auth
         [HttpPost("login")]
         public async Task<IActionResult> LoginAsync(AuthDto userDto, CancellationToken cancellationToken)
         {
-            try
+            try 
             {
                 return Ok(await _authService.LoginAsync(userDto, cancellationToken));
             }
-            catch ( Exception e )
+            catch (Exception e)
             {
                 return BadRequest(e.Message);
             }

@@ -24,7 +24,7 @@ namespace TestApp.Web.Api.Validators
                 }
 
                 var checkUser =
-                    await dataAccess._appUserDataAccess.GetUserByFieldAsync(x => x.Id == id, new CancellationToken());
+                    await dataAccess._appUserDataAccess.GetUserByIdAsync(Guid.Parse(id), new CancellationToken());
 
                 if ( checkUser == null )
                 {

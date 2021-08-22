@@ -10,7 +10,7 @@ namespace TestApp.Data.DataAccess
 {
     public class BaseDataAccess<T> where T : class
     {
-        private readonly ApplicationDbContext _appContext;
+        protected readonly ApplicationDbContext _appContext;
 
         internal BaseDataAccess(ApplicationDbContext applicationContext)
         {

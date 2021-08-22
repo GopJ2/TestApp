@@ -16,30 +16,30 @@ namespace TestApp.Data.Seeders.Helper
             {
                 new Test
                 {
-                    Id = "f14f0184-0b15-431f-b4e3-853224eed6dd",
+                    Id = Guid.Parse("f14f0184-0b15-431f-b4e3-853224eed6dd"),
                     Name = "C# Test",
-                    UserId = "ce40ea29-e665-4a37-858b-e7d2359cdd4f",
+                    UserId = Guid.Parse("ce40ea29-e665-4a37-858b-e7d2359cdd4f"),
                     Description = "Sample C# Tests Description",
                 },
                 new Test
                 {
-                    Id = "b5902bf9-bea2-4fac-96bc-52c0ed52e6c7",
-                    UserId = "ce40ea29-e665-4a37-858b-e7d2359cdd4f",
+                    Id = Guid.Parse("b5902bf9-bea2-4fac-96bc-52c0ed52e6c7"),
+                    UserId = Guid.Parse("ce40ea29-e665-4a37-858b-e7d2359cdd4f"),
                     Name = "Node.js Test",
                     Description = "Sample Node.js Tests",
                 },
                 new Test
                 {
-                    Id = "91b1aa6d-bd4a-43e0-ad89-e672709e35fe",
+                    Id = Guid.Parse("91b1aa6d-bd4a-43e0-ad89-e672709e35fe"),
                     Name = "LINQ Test",
-                    UserId = "a8a4828c-60f0-4f99-bbe6-229df1d098a2",
+                    UserId = Guid.Parse("a8a4828c-60f0-4f99-bbe6-229df1d098a2"),
                     Description = "Sample LINQ Tests",
                 },
                  new Test
                 {
-                    Id = "c23f9ea6-50a9-417c-89bb-15194cc2787b",
+                    Id = Guid.Parse("c23f9ea6-50a9-417c-89bb-15194cc2787b"),
                     Name = "Vanilla JS Test",
-                    UserId = "a8a4828c-60f0-4f99-bbe6-229df1d098a2",
+                    UserId = Guid.Parse("a8a4828c-60f0-4f99-bbe6-229df1d098a2"),
                     Description = "Sample Javascript Tests",
                 },
             }.ForEach(x => modelBuilder.Entity<Test>().HasData(x));
