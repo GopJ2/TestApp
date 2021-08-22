@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading;
@@ -17,15 +16,15 @@ namespace TestApp.Web.Api.Validators
             try
             {
                 var repository = context.HttpContext.RequestServices.GetRequiredService<GlobalDataAccess>();
-                var email = context.Principal?.Claims.First(c => c.Type == ClaimTypes.Email)?.Value;
+                var id = context.Principal?.Claims.First(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
 
-                if (email == null)
+                if (id == null)
                 {
                     context.Fail("invalid_token");
                 }
 
                 var checkUser =
-                    await repository._appUserDataAccess.GetUserByFieldAsync(x => x.Email == email, new CancellationToken());
+                    await repository._appUserDataAccess.GetUserByFieldAsync(x => x.Id == id, new CancellationToken());
 
                 if ( checkUser == null )
                 {

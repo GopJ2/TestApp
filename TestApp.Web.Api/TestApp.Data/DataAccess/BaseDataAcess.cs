@@ -10,7 +10,7 @@ namespace TestApp.Data.DataAccess
 {
     public class BaseDataAccess<T> where T : class
     {
-        private ApplicationDbContext _appContext;
+        private readonly ApplicationDbContext _appContext;
 
         internal BaseDataAccess(ApplicationDbContext applicationContext)
         {
@@ -19,12 +19,12 @@ namespace TestApp.Data.DataAccess
 
         public async Task AddAsync(T entity, CancellationToken cancellationToken)
         {
-            await _appContext.Set<T>().AddAsync(entity);
+            await _appContext.Set<T>().AddAsync(entity, cancellationToken);
             await _appContext.SaveChangesAsync(cancellationToken);
         }
         public async Task AddRangeAsync(IEnumerable<T> entity, CancellationToken cancellationToken)
         {
-            await _appContext.Set<T>().AddRangeAsync(entity);
+            await _appContext.Set<T>().AddRangeAsync(entity, cancellationToken);
             await _appContext.SaveChangesAsync(cancellationToken);
         }
 

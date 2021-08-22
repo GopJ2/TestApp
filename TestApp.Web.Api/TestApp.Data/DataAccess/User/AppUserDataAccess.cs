@@ -12,7 +12,7 @@ namespace TestApp.Data.DataAccess.User
 {
     public class AppUserDataAccess : BaseDataAccess<AppUser>
     {
-        ApplicationDbContext _applicationContext;
+        private readonly ApplicationDbContext _applicationContext;
 
         public AppUserDataAccess(ApplicationDbContext applicationDbContext): base(applicationDbContext)
         {

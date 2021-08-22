@@ -11,6 +11,7 @@ using TestApp.Data;
 using TestApp.Data.DataAccess;
 using TestApp.Dto.Config;
 using TestApp.Services.Auth;
+using TestApp.Services.Tests;
 using TestApp.Web.Api.Validators;
 
 namespace TestApp.Web.Api
@@ -32,11 +33,13 @@ namespace TestApp.Web.Api
             var connectionString = Configuration.GetConnectionString("Database");
 
             services.AddScoped(c => new GlobalDataAccess(connectionString));
-            
+
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connectionString));
 
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<ITestService, TestsService>();
+            services.AddScoped<ITestQuestionService, TestQuestionService>();
 
             ConfigureJwtBearer(services);
         }
@@ -58,12 +61,7 @@ namespace TestApp.Web.Api
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
-
-            //AppUserSeeder.SeedUsers(manager);
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
 
         private void ConfigureJwtBearer(IServiceCollection services)
@@ -71,10 +69,10 @@ namespace TestApp.Web.Api
             services.AddScoped<UserJwtValidator>();
 
             services.AddAuthentication(options =>
-            {
-                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
+                {
+                    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                })
                 .AddJwtBearer(options =>
                 {
                     options.RequireHttpsMetadata = false;

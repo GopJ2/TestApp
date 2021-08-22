@@ -1,17 +1,21 @@
-﻿using TestApp.Data.DataAccess.User;
+﻿using TestApp.Data.DataAccess.Tests;
+using TestApp.Data.DataAccess.User;
 
 namespace TestApp.Data.DataAccess
 {
     public class GlobalDataAccess
     {
-        public ApplicationDbContext _appContext;
-
-        public AppUserDataAccess _appUserDataAccess;
+        public readonly AppUserDataAccess _appUserDataAccess;
+        public readonly TestsDataAccess _testsDataAccess;
+        public readonly TestQuestionsDataAccess _testQuestionsDataAccess;
+        
 
         public GlobalDataAccess(string connectionString)
         {
-            _appContext = new ApplicationDbContext(connectionString);
-            _appUserDataAccess = new AppUserDataAccess(_appContext);
+            var appContext = new ApplicationDbContext(connectionString);
+            _appUserDataAccess = new AppUserDataAccess(appContext);
+            _testsDataAccess = new TestsDataAccess(appContext);
+            _testQuestionsDataAccess = new TestQuestionsDataAccess(appContext);
         }
     }
 }

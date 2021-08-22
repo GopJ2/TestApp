@@ -30,12 +30,12 @@
       <b-button class="m-2" type="submit" variant="primary">Submit</b-button>
       <b-button class="m-2" type="reset" variant="danger">Reset</b-button>
     </b-form>
-
   </div>
 </template>
 
 <script>
-import axios from 'axios';
+import loginAsync from "../../services/auth/login";
+
 export default {
   data() {
     return {
@@ -49,11 +49,16 @@ export default {
   },
   methods: {
     async onSubmit(event) {
-      event.preventDefault()
+      event.preventDefault();
       try {
-        const result = await axios.post('https://localhost:44381/api/Auth/login', this.form);
-        console.log(result);
+        const loggedIn = await loginAsync(this.form);
 
+        if (loggedIn) {
+          await this.$router.push('/tests');
+          return;
+        }
+
+        this.errorMessage = "Something went wrong, please try again later";
       } catch(e) {
         this.errorMessage = e.response.data;
       }

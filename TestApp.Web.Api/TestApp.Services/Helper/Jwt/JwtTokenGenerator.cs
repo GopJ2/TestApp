@@ -9,13 +9,13 @@ using TestApp.Dto.Config;
 
 namespace TestApp.Services.Helper.Jwt
 {
-    public class JwtTokenGenerator
+    public static class JwtTokenGenerator
     {
-        public static TokenDto GenerateToken(string email)
+        public static TokenDto GenerateToken(string id)
         {
             var authClaims = new List<Claim>
             {
-                new Claim(ClaimTypes.Email, email),
+                new Claim(ClaimTypes.NameIdentifier, id),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             };
 

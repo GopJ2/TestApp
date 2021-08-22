@@ -28,7 +28,7 @@ namespace TestApp.Services.Auth
                 throw new Exception("Invalid credentials");
             }
 
-            return JwtTokenGenerator.GenerateToken(model.Email);
+            return JwtTokenGenerator.GenerateToken(user.Id);
         }
     }
 }

@@ -3,15 +3,20 @@ import VueRouter from "vue-router";
 const routes = [
     {
         path: '/',
-        component: () => import("../App"),
-        redirect: '/login',
-        children: [
-            {
-                path: 'login',
-                component: () => import("../pages/login/Login"),
-            }
-        ]
+        redirect: '/login'
     },
+    {
+        path: '/login',
+        component: () => import("../pages/login/Login"),
+    },
+    {
+        path: '/tests',
+        component: () => import("../pages/tests/ListTests"),
+    },
+    {
+        path: '/tests/:id',
+        component: () => import("../pages/tests/TestPage"),
+    }
 ]
 
 const router = new VueRouter({
